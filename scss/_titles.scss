@@ -1,6 +1,6 @@
 .titles {
   font-size: $text-big;
-  margin: 200px 0 0 150px;
+  margin: 150px 0 0 150px;
   position: relative;
 
   &::before {
@@ -13,5 +13,5 @@
     right: 148px;
     width: $title-decoration-width;
     z-index: -1;
-    }
   }
+}

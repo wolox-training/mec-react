@@ -1,0 +1,69 @@
+.technologies {
+    margin: 0 100px 0 100px;
+
+  .techs {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+    margin-top: 50px;
+    margin-left: 150px;
+
+    .each {
+      align-items: center;
+      border: 1px solid $earls-green;
+      border-radius: 5px 5px 5px 5px;
+      display: flex;
+      flex-direction: column;
+      height: 330px;
+      margin-right: 50px;
+      margin-bottom: 30px;   
+      max-width: 220px;
+      padding-top:20px;
+      position: relative;
+      width: 100%;
+
+      &::before {
+        background-color: $earls-green;
+        border-radius: 5px 5px 5px 5px;
+        content: '';
+        height: 330px;
+        left: 10px;
+        max-width: 220px;
+        position: absolute;
+        top: 10px;
+        width: 100%;
+        z-index: -1;
+      }
+
+      .logo {
+        height: $tech-logo-size;
+        width: $tech-logo-size;
+      }
+
+      .names {
+        font-size: $text-medium;
+        padding-top: 7px;
+      }
+
+      %tech-data {
+        padding-top: 15px;
+        text-align: center;
+      }
+
+      .release {
+          @extend %tech-data;
+          font-weight: bold;
+      }
+
+      .description {
+          @extend %tech-data;
+          line-height: 19px;
+          padding-left: 15px;
+          padding-right: 15px;
+      }
+
+    } 
+
+  } 
+
+}
