@@ -1,11 +1,6 @@
-$text-big: 24px;
-$title-decoration-height: 90px;
-$title-decoration-width: 70px;
-
-
 .titles {
   font-size: $text-big;
-  margin:200px 0 0 150px;
+  margin: 200px 0 0 150px;
   position: relative;
 
   &::before {
@@ -18,5 +13,5 @@ $title-decoration-width: 70px;
     right: 148px;
     width: $title-decoration-width;
     z-index: -1;
-      }
     }
+  }
