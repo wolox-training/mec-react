@@ -1,0 +1,26 @@
+.navbar {
+    background-color: white;
+   // border-bottom: 5px solid silver; 
+    display: flex;
+    height: $nav-height;
+    position: fixed;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0 0 15px $silver;
+
+    .w-logo {
+      width: 30%;
+      height: auto;
+    }
+
+    .navtext {
+        height: auto;
+        font-size: $text-big;
+    }
+
+}
+
