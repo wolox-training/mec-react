@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+input,
+a,
+button,
+select,
+textarea {
+  color: #000;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0; }
+  h1:focus,
+  h2:focus,
+  h3:focus,
+  h4:focus,
+  h5:focus,
+  h6:focus,
+  p:focus,
+  span:focus,
+  label:focus,
+  input:focus,
+  a:focus,
+  button:focus,
+  select:focus,
+  textarea:focus {
+    outline: none; }
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed; }
+
+input,
+select,
+textarea,
+button {
+  border: 0;
+  border-radius: 0; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+button {
+  background: transparent;
+  cursor: pointer; }
+
+button::-moz-focus-inner {
+  border: 0; }
+
+a {
+  cursor: pointer;
+  text-decoration: none; }
+  a:focus, a:active, a:hover {
+    color: #000;
+    text-decoration: none; }
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+::placeholder {
+  color: #999;
+  opacity: 1; }
+
+body {
+  font-family: 'Roboto', sans-serif; }
+
+.titles {
+  font-size: 24px;
+  margin: 150px 0 0 150px;
+  position: relative; }
+  .titles::before {
+    content: '';
+    background-image: url(assets/triangle.svg);
+    background-repeat: no-repeat;
+    bottom: -26px;
+    height: 90px;
+    position: absolute;
+    right: 148px;
+    width: 70px;
+    z-index: -1; }
+
+.technologies {
+  margin: 0 100px 0 100px; }
+  .technologies .techs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 50px;
+    margin-left: 150px; }
+    .technologies .techs .tech {
+      align-items: center;
+      background-color: #BED23C;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      height: 330px;
+      margin-right: 50px;
+      margin-bottom: 30px;
+      max-width: 220px;
+      padding-top: 20px;
+      position: relative;
+      width: 100%; }
+      .technologies .techs .tech::before {
+        background-color: white;
+        border: 1px solid #BED23C;
+        border-radius: 5px;
+        content: '';
+        height: 330px;
+        left: -10px;
+        max-width: 220px;
+        position: absolute;
+        top: -10px;
+        width: 100%;
+        z-index: -1; }
+      .technologies .techs .tech .logo {
+        height: 100px;
+        width: 100px; }
+      .technologies .techs .tech .names {
+        font-size: 16px;
+        padding-top: 7px; }
+      .technologies .techs .tech .release, .technologies .techs .tech .description {
+        padding-top: 15px;
+        text-align: center; }
+      .technologies .techs .tech .release {
+        font-weight: bold; }
+      .technologies .techs .tech .description {
+        line-height: 19px;
+        padding: 0 15px; }
+
+/*# sourceMappingURL=application.css.map */
