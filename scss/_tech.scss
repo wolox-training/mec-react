@@ -8,24 +8,24 @@
     margin-top: 50px;
     margin-left: 150px;
 
-    .each {
+    .tech {
       align-items: center;
       background-color: $earls-green;
-      border-radius: 5px 5px 5px 5px;
+      border-radius: 5px;
       display: flex;
       flex-direction: column;
       height: 330px;
       margin-right: 50px;
       margin-bottom: 30px;   
       max-width: 220px;
-      padding-top:20px;
+      padding-top: 20px;
       position: relative;
       width: 100%;
 
       &::before {
         background-color: white;
         border: 1px solid $earls-green;
-        border-radius: 5px 5px 5px 5px;
+        border-radius: 5px;
         content: '';
         height: 330px;
         left: -10px;
@@ -33,14 +33,8 @@
         position: absolute;
         top: -10px;
         width: 100%;
-        z-index: -1;
-        transition: top left 0,5s ease;
+        z-index: -1;       
       }
-
-       &::before:hover {
-        top: 10px;
-        left: 10px;
-       }
 
       .logo {
         height: $tech-logo-size;
@@ -65,8 +59,7 @@
       .description {
           @extend %tech-data;
           line-height: 19px;
-          padding-left: 15px;
-          padding-right: 15px;
+          padding: 0 15px;
       }
 
     } 

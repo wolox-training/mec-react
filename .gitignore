@@ -1,4 +1,4 @@
 .DS_Store
-.application.css
-/sass-cache
-.application.css.map
+application.css
+.sass-cache/*
+application.css.map
