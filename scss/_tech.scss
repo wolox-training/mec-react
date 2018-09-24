@@ -37,7 +37,7 @@
         @include transition(all, 0.5s, ease);   
       }
 
-        &:hover:before {
+        &::before {
           top: 10px;
           left: 10px;
         }
