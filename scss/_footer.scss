@@ -10,22 +10,22 @@
     z-index: 1;
 
     .wlogow {
-        width: 30%;
-        height: 40%;
+      width: 30%;
+      height: 40%;
       }
 
     .ftext {
-        color: white;
-        font-size: $text-big;
-        font-weight: lighter;
-        text-transform: uppercase;
-        padding: 20px 0 13px 0;
+      color: white;
+      font-size: $text-big;
+      font-weight: lighter;
+      text-transform: uppercase;
+      padding: 20px 0 13px 0;
     } 
     
     .crtext {
-        color: white;
-        font-size: $text-small;
-        align-self: flex-end;
-        padding: 10px 15px 10px 0;
+      color: white;
+      font-size: $text-small;
+      align-self: flex-end;
+      padding: 10px 15px 10px 0;
     }
 }
