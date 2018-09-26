@@ -2,10 +2,9 @@
     display: flex;
     flex-wrap: wrap; 
     justify-content: center;
-    margin: 80px 0 80px 0;
+    margin: 80px 0;
 
-    .betechs,
-    .fetechs {
+    .technologies {
       display: grid;
       grid-template-rows: 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
@@ -13,39 +12,13 @@
     .tech {
       align-items: center;
       justify-content: center;
-      //background-color: $earls-green;
-      //border-radius: 5px;
       display: flex;
       flex-direction: column;
-      //height: 330px;
-      margin-right: 50px;
-      //margin-bottom: 50px;   
+      margin-right: 50px;  
       max-width: 220px;
       padding-top: 20px;
-      //position: relative;
       width: 100%;
-     /*
-      &::before {
-        background-color: white;
-        border: 1px solid $earls-green;
-        border-radius: 5px;
-        content: '';
-        height: 330px;
-        left: -10px;
-        max-width: 220px;
-        position: absolute;
-        top: -10px;
-        width: 100%;
-        z-index: -1;    
-        @include transition(all, 0.5s, ease);   
-      }
-      
-        &:hover:before {
-          top: 10px;
-          left: 10px;
-        }
-      */
-   
+
       .logo {
         height: $tech-logo-size;
         width: $tech-logo-size;
@@ -73,7 +46,7 @@
       }
     }  
 
-    .columna {
+    .column {
       align-self: center;
       border-right: 2px solid $earls-green;
       grid-column: 1/2;
