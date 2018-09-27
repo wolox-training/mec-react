@@ -22,10 +22,16 @@
     padding: 20px 0 13px 0;
   } 
     
-  .crtext {
-    color: white;
-    font-size: $text-small;
-    align-self: flex-end;
-    padding: 10px 15px 10px 0;
-  }
+    .crtext {
+      color: white;
+      font-size: $text-small;
+      align-self: flex-end;
+      padding: 10px 15px 10px 0;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        .crtext {
+           align-self: center;
+        }
+    }
 }
