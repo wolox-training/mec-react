@@ -1,26 +1,26 @@
 .foot {
-    background-color: $cerulean;
-    display: flex;
-    flex-direction: column;
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    width: 100%;
-    z-index: 1;
+  background-color: $cerulean;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+  z-index: 1;
 
-    .wlogow {
-      width: 30%;
-      height: 40%;
-      }
+  .wlogow {
+    width: 30%;
+    height: 40%;
+    }
 
-    .ftext {
-      color: white;
-      font-size: $text-big;
-      font-weight: lighter;
-      text-transform: uppercase;
-      padding: 20px 0 13px 0;
-    } 
+  .ftext {
+    color: white;
+    font-size: $text-big;
+    font-weight: lighter;
+    text-transform: uppercase;
+    padding: 20px 0 13px 0;
+  } 
     
     .crtext {
       color: white;
