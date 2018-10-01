@@ -1,7 +1,6 @@
 import isArray from './utils';
 
 export function min(arg) {
-// Si viene un solo argumento, puede o no ser un array. Si es un array se lo paso con el Spread Operator. Si no es un array paso el numero directamente. 
   if (arguments.length === 1) {
     if (isArray(arg)) {
       return Math.min(...arg);
@@ -15,10 +14,8 @@ export function min(arg) {
 }
 
 export function copy(args) {
-  if (isArray(args))
-  {
-    const array1 = [...args];
-    return array1;
+  if (isArray(args)) {
+    return [...args];
   }
   const obje1 = {
     ...args
