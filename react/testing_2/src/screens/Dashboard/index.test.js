@@ -9,12 +9,12 @@ import Dashboard from './index';
 configure({ adapter: new Adapter() });
 
 describe('Dashboard', () => {
-  xit('first h1 text should be "Welcome to React"', () => {
+  it('first h1 text should be "Welcome to React"', () => {
     const wrapper = shallow(<Dashboard />);
   });
-  xit('parent of the logo should be a header', () => {
+  it('parent of the logo should be a header', () => {
     const wrapper = shallow(<Dashboard />);
   });
-  xit('componentDidMount is called once', () => {
+  it('componentDidMount is called once', () => {
   })
 });

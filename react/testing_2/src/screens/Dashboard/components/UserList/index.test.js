@@ -9,8 +9,8 @@ import UserList from './index';
 configure({ adapter: new Adapter() });
 
 describe('UserList', () => {
-  xit('shows new user when props are changed', () => {
+  it('shows new user when props are changed', () => {
   });
-  xit('setProps makes componentDidUpdate to be executed', () => {
+  it('setProps makes componentDidUpdate to be executed', () => {
   });
 });

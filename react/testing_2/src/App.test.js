@@ -8,10 +8,10 @@ import App from './App';
 
 configure({ adapter: new Adapter() });
 describe('App', () => {
-  xit('renders without crashing', () => {
+  it('renders without crashing', () => {
   });
 
-  xit('matches the snapshot', () => {
+  it('matches the snapshot', () => {
     const tree = mount(<App />);
   });
 });
