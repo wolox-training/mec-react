@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
-import {Board} from './components/Board/'
+import React, { Component } from 'react';
 
-export class Game extends React.Component {
+import { Board } from './components/Board/';
+
+export class Game extends Component {
   render() {
     return (
       <div className="game">
