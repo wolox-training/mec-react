@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import {Square} from './components/Square';
+import { Square } from './components/Square';
 
 export class Board extends Component {
-  renderSquare(i) {
-    return <Square />;
-  }
+
+  renderSquare = i => {
+    return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
+  };
 
   render() {
-    const status = 'Next player: X';
     return (
       <React.Fragment>
-        <div className="status">{status}</div>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
