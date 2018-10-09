@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
-export function Square(props) {
-  return (
-    <button className="square" onClick={() => props.onClick()}>
-      {props.value}
-    </button>
-  );
+export class Square extends Component {
+
+  onClickSquare = () => {
+            this.props.onClick(this.props.num);
+  };
+  render () {
+      return (
+        <button className="square" onClick={this.onClickSquare}>
+          {this.props.value}
+        </button>
+      );
+    }
 }
