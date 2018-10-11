@@ -46,7 +46,7 @@ class Game extends Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ? 'Go to move #' + move : 'Go to game start';
+      const desc = move ? `Go to move # ${move}` : 'Go to game start';
       return (
         <li key={step.id}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -56,9 +56,9 @@ class Game extends Component {
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = `Winner: ${winner}`;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }
 
     return (
