@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Square extends Component {
   onClickSquare = () => {
@@ -12,5 +13,11 @@ class Square extends Component {
     );
   }
 }
+
+Square.propTypes = {
+  num: PropTypes.number.isRequired,
+  value: PropTypes.string,
+  onClick: PropTypes.func.isRequired
+};
 
 export default Square;

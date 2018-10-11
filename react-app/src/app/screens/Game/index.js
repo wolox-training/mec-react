@@ -25,7 +25,7 @@ class Game extends Component {
     this.setState({
       history: history.concat([
         {
-          id: history.length - 1,
+          id: history.length,
           squares
         }
       ]),
@@ -46,7 +46,7 @@ class Game extends Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map(step => {
-      const desc = step.id ? 'Go to move #' + step.id : 'Go to game start';
+      const desc = step.id ? `Go to move # ${step.id}` : 'Go to game start';
       return (
         <li key={step.id}>
           <button onClick={() => this.jumpTo(step.id)}>{desc}</button>
@@ -56,9 +56,9 @@ class Game extends Component {
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = `Winner: ${winner}`;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }
 
     return (
