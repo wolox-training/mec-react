@@ -30,7 +30,7 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  squares: PropTypes.string.isRequired,
+  squares: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClick: PropTypes.func.isRequired
 };
 
