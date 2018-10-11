@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
-import { Board } from './components/Board/';
-import { calculateWinner } from './utils/winner';
+import Board from './components/Board/';
+import { calculateWinner } from './util';
 
-export class Game extends Component {
+class Game extends Component {
   state = {
     history: [
       {
-        squares: Array(9).fill(null)
+        squares: Array(9).fill(null),
+        id: null
       }
     ],
     stepNumber: 0,
@@ -24,6 +25,7 @@ export class Game extends Component {
     this.setState({
       history: history.concat([
         {
+          id: history.length - 1,
           squares
         }
       ]),
@@ -32,12 +34,11 @@ export class Game extends Component {
     });
   };
 
-  jumpTo = step => {
+  jumpTo = step =>
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0
+      xIsNext: step % 2 === 0
     });
-  };
 
   render() {
     const history = this.state.history;
@@ -47,7 +48,7 @@ export class Game extends Component {
     const moves = history.map((step, move) => {
       const desc = move ? 'Go to move #' + move : 'Go to game start';
       return (
-        <li key={move}>
+        <li key={step.id}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
@@ -73,3 +74,5 @@ export class Game extends Component {
     );
   }
 }
+
+export default Game;

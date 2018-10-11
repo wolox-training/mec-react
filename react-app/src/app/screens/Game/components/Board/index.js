@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import {Square} from './components/Square';
+import Square from './components/Square';
 
-export class Board extends Component {
+class Board extends Component {
   renderSquare = i => <Square num={i} value={this.props.squares[i]} onClick={this.props.onClick} />;
 
   render() {
@@ -27,3 +27,5 @@ export class Board extends Component {
     );
   }
 }
+
+export default Board;
