@@ -30,8 +30,8 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  squares: PropTypes.num,
-  onClick: PropTypes.func
+  squares: PropTypes.num.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Board;
