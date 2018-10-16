@@ -1,48 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import gameAction from '../../../redux/gameReducer/actions';
 
 import Board from './components/Board/';
 import { calculateWinner } from './util';
 
 class Game extends Component {
-  state = {
-    history: [
-      {
-        squares: Array(9).fill(null),
-        id: 0
-      }
-    ],
-    stepNumber: 0,
-    xIsNext: true
-  };
-  handleClick = i => {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length - 1];
-    const squares = current.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-      history: history.concat([
-        {
-          id: history.length,
-          squares
-        }
-      ]),
-      stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
-    });
-  };
+  handleClick = i => this.props.dispatch(gameAction.newPlay(i));
 
-  jumpTo = step =>
-    this.setState({
-      stepNumber: step,
-      xIsNext: step % 2 === 0
-    });
+  jumpTo = step => this.props.dispatch(gameAction.jumpTo(step));
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const history = this.props.history;
+    const current = history[this.props.stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map(step => {
@@ -58,7 +29,7 @@ class Game extends Component {
     if (winner) {
       status = `Winner: ${winner}`;
     } else {
-      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+      status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
     }
 
     return (
@@ -75,4 +46,10 @@ class Game extends Component {
   }
 }
 
-export default Game;
+const mapStateToProps = state => ({
+  history: state.history,
+  stepNumber: state.stepNumber,
+  xIsNext: state.xIsNext
+});
+
+export default connect(mapStateToProps)(Game);
