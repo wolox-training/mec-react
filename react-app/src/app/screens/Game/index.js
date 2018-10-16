@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import gameAction from '../../../redux/gameReducer/actions';
 
@@ -45,6 +46,12 @@ class Game extends Component {
     );
   }
 }
+
+Game.propTypes = {
+  history: PropTypes.arrayOf(PropTypes.object).isRequired,
+  stepNumber: PropTypes.number.isRequired,
+  xIsNext: PropTypes.boolean.isRequired
+};
 
 const mapStateToProps = state => ({
   history: state.history,
