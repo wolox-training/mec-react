@@ -8,9 +8,8 @@ import Board from './components/Board/';
 import { calculateWinner } from './util';
 
 class Game extends Component {
-  handleClick = i => this.props.dispatch(gameAction.newPlay(i));
-
-  jumpTo = step => this.props.dispatch(gameAction.jumpTo(step));
+  handleClick = i => this.props.handleOnClick(i);
+  jumpTo = step => this.props.jumpToStep(step);
 
   render() {
     const history = this.props.history;
@@ -50,7 +49,9 @@ class Game extends Component {
 Game.propTypes = {
   history: PropTypes.arrayOf(PropTypes.object).isRequired,
   stepNumber: PropTypes.number.isRequired,
-  xIsNext: PropTypes.boolean.isRequired
+  xIsNext: PropTypes.bool.isRequired,
+  handleOnClick: PropTypes.func,
+  jumpToStep: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -59,4 +60,12 @@ const mapStateToProps = state => ({
   xIsNext: state.xIsNext
 });
 
-export default connect(mapStateToProps)(Game);
+const mapDispatchToProps = dispatch => ({
+  handleOnClick: i => dispatch(gameAction.newPlay(i)),
+  jumpToStep: step => dispatch(gameAction.jumpTo(step))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Game);
