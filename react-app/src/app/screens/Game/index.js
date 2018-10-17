@@ -13,7 +13,7 @@ class Game extends Component {
 
   render() {
     const history = this.props.history;
-    const current = history[this.props.stepNumber];
+    const current = this.props.current;
     const winner = calculateWinner(current.squares);
 
     const moves = history.map(step => {
@@ -48,14 +48,16 @@ class Game extends Component {
 
 Game.propTypes = {
   history: PropTypes.arrayOf(PropTypes.object).isRequired,
-  stepNumber: PropTypes.number.isRequired,
   xIsNext: PropTypes.bool.isRequired,
+  current: PropTypes.Object,
   handleOnClick: PropTypes.func,
   jumpToStep: PropTypes.func
 };
 
 const mapStateToProps = state => ({
   history: state.history,
+  current: state.history[state.stepNumber],
+  winner: calculateWinner(this.props.current.squares),
   stepNumber: state.stepNumber,
   xIsNext: state.xIsNext
 });
