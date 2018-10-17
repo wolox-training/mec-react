@@ -8,19 +8,14 @@ import Board from './components/Board/';
 import { calculateWinner } from './util';
 
 class Game extends Component {
-  handleClick = i => this.props.handleOnClick(i);
-  jumpTo = step => this.props.jumpToStep(step);
-
   render() {
-    const history = this.props.history;
-    const current = this.props.current;
-    const winner = this.props.winner;
+    const { history, current, winner, handleClick, jumpTo, xIsNext } = this.props;
 
     const moves = history.map(step => {
       const desc = step.id ? `Go to move # ${step.id}` : 'Go to game start';
       return (
         <li key={step.id}>
-          <button onClick={() => this.jumpTo(step.id)}>{desc}</button>
+          <button onClick={() => jumpTo(step.id)}>{desc}</button>
         </li>
       );
     });
@@ -29,13 +24,13 @@ class Game extends Component {
     if (winner) {
       status = `Winner: ${winner}`;
     } else {
-      status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
+      status = `Next player: ${xIsNext ? 'X' : 'O'}`;
     }
 
     return (
       <div className="game">
         <div className="game-board">
-          <Board squares={current.squares} onClick={this.handleClick} />
+          <Board squares={current.squares} onClick={handleClick} />
         </div>
         <div className="game-info">
           <div>{status}</div>
@@ -47,12 +42,16 @@ class Game extends Component {
 }
 
 Game.propTypes = {
-  history: PropTypes.arrayOf(PropTypes.object).isRequired,
+  obj: PropTypes.shape({
+    square: PropTypes.arrayOf(PropTypes.string),
+    id: PropTypes.number
+  }),
+  history: PropTypes.arrayOf(PropTypes.obj).isRequired,
   xIsNext: PropTypes.bool.isRequired,
-  current: PropTypes.Object,
+  current: PropTypes.obj,
   winner: PropTypes.string,
-  handleOnClick: PropTypes.func,
-  jumpToStep: PropTypes.func
+  handleClick: PropTypes.func,
+  jumpTo: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -64,8 +63,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleOnClick: i => dispatch(gameAction.newPlay(i)),
-  jumpToStep: step => dispatch(gameAction.jumpTo(step))
+  handleClick: i => dispatch(gameAction.newPlay(i)),
+  jumpTo: step => dispatch(gameAction.jumpTo(step))
 });
 
 export default connect(
