@@ -8,7 +8,8 @@ const initialState = {
     }
   ],
   stepNumber: 0,
-  xIsNext: true
+  xIsNext: true,
+  winner: null
 };
 
 function reducer(state = initialState, action) {
@@ -29,7 +30,8 @@ function reducer(state = initialState, action) {
           }
         ]),
         stepNumber: history.length,
-        xIsNext: !state.xIsNext
+        xIsNext: !state.xIsNext,
+        winner: calculateWinner(state.history[state.stepNumber].squares)
       };
     }
     case 'JUMP_TO':
