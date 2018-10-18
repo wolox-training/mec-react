@@ -43,7 +43,7 @@ Game.propTypes = {
   }),
   history: PropTypes.arrayOf(PropTypes.obj).isRequired,
   xIsNext: PropTypes.bool.isRequired,
-  current: PropTypes.Object,
+  current: PropTypes.obj,
   winner: PropTypes.string,
   handleClick: PropTypes.func,
   jumpTo: PropTypes.func

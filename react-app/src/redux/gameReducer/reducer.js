@@ -1,4 +1,4 @@
-import { calculateWinner } from '../../app/screens/Game/util';
+import { calculateWinner } from './util';
 
 const initialState = {
   history: [
@@ -31,7 +31,7 @@ function reducer(state = initialState, action) {
         ]),
         stepNumber: history.length,
         xIsNext: !state.xIsNext,
-        winner: calculateWinner(state.history[state.stepNumber].squares)
+        winner: calculateWinner(squares)
       };
     }
     case 'JUMP_TO':
