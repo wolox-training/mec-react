@@ -9,11 +9,12 @@ const format = value => (validateMail(value) ? undefined : 'Wrong format Mail');
 
 const minLength = value => (value.length < 8 ? 'Value must be at least 8 characters' : undefined);
 
-const matchesPassword = (value, allValues) => (value === allValues.password) ? undefined : 'Password must match';
+const matchesPassword = (value, allValues) =>
+  value === allValues.password ? undefined : 'Password must match';
 
 export const validations = {
-  required : required,
-  format : format,
-  minLength : minLength,
-  matchesPassword: matchesPassword
+  required,
+  format,
+  minLength,
+  matchesPassword
 };

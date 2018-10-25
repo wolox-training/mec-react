@@ -2,7 +2,8 @@ const initialState = {
   email: '',
   password: '',
   isLoading: false,
-  logged: false
+  logged: false,
+  error: false
 };
 
 function reducer(state = initialState, action) {
@@ -19,13 +20,14 @@ function reducer(state = initialState, action) {
       };
     case 'LOGIN_FAILURE':
       return {
-        ...state
+        ...state,
+        error: true
       };
-    /*  case 'LOGOUT':
+    case 'LOGOUT':
       return {
         ...state,
         logged: false
-      }; */
+      };
     default:
       return state;
   }

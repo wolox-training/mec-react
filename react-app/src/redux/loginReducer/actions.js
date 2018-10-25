@@ -4,22 +4,22 @@ import api from '../../services/config/api';
 const privateActionCreators = {
   logIn: data => ({
     type: 'LOGIN',
-    payload: { data }
+    payload: data
   }),
   logInOk: data => ({
     type: 'LOGIN_OK',
-    payload: { data }
+    payload: data
   }),
   logInLoading: () => ({
     type: 'LOGIN_LOADING'
   }),
   logInFailure: data => ({
     type: 'LOGIN_FAILURE',
-    payload: { data }
+    payload: data
   }),
   logOut: data => ({
     type: 'LOG_OUT',
-    payload: { data }
+    payload: data
   })
 };
 
@@ -41,6 +41,7 @@ export const actionCreators = {
       }
     } else {
       dispatch(privateActionCreators.logInFailure(response.problem));
+      console.log(response.data);
       window.alert('Login Failure');
     }
   }
