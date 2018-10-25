@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import gameAction from '../../../redux/gameReducer/actions';
 
@@ -24,15 +25,19 @@ const Game = ({ history, current, winner, handleClick, jumpTo, xIsNext }) => {
   }
 
   return (
-    <div className="game">
-      <div className="game-board">
-        <Board squares={current.squares} onClick={handleClick} />
+    <Fragment>
+      <div className="flex-container">
+        <div className="game">
+          <div className="game-board">
+            <Board squares={current.squares} onClick={handleClick} />
+          </div>
+          <div className="game-info">
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
+        </div>
       </div>
-      <div className="game-info">
-        <div>{status}</div>
-        <ol>{moves}</ol>
-      </div>
-    </div>
+    </Fragment>
   );
 };
 
@@ -41,20 +46,20 @@ Game.propTypes = {
     square: PropTypes.arrayOf(PropTypes.string),
     id: PropTypes.number
   }),
-  history: PropTypes.arrayOf(PropTypes.obj).isRequired,
+  // history: PropTypes.arrayOf(PropTypes.Object).isRequired,
   xIsNext: PropTypes.bool.isRequired,
-  current: PropTypes.obj,
+  // current: PropTypes.Object,
   winner: PropTypes.string,
   handleClick: PropTypes.func,
   jumpTo: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  history: state.history,
-  current: state.history[state.stepNumber],
-  winner: state.winner,
-  stepNumber: state.stepNumber,
-  xIsNext: state.xIsNext
+  history: state.game.history,
+  current: state.game.history[state.game.stepNumber],
+  winner: state.game.winner,
+  stepNumber: state.game.stepNumber,
+  xIsNext: state.game.xIsNext
 });
 
 const mapDispatchToProps = dispatch => ({
