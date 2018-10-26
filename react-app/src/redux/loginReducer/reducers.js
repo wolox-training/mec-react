@@ -1,6 +1,9 @@
 const initialState = {
   email: '',
   password: '',
+  name: '',
+  surname: '',
+  description: '',
   isLoading: false,
   logged: false,
   error: false
@@ -18,6 +21,9 @@ function reducer(state = initialState, action) {
         ...state,
         email: action.payload[0].mail,
         password: action.payload[0].password,
+        name: action.payload[0].name,
+        surname: action.payload[0].surname,
+        description: action.payload[0].description,
         isLoading: false,
         logged: true
       };
@@ -32,6 +38,9 @@ function reducer(state = initialState, action) {
         ...state,
         email: '',
         password: '',
+        name: '',
+        surname: '',
+        description: '',
         logged: false
       };
     default:
