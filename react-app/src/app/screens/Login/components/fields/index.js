@@ -3,24 +3,26 @@ import React, { Component } from 'react';
 class customInput extends Component {
   state = { validClassName: 'form-input' };
 
-  static getDerivedStateFromProps() {
-    if (meta.invalid) {
+  static getDerivedStateFromProps(props, state) {
+    if (props.meta.touched) {
+      if (props.meta.invalid) {
+        return {
+          validClassName: 'form-input invalid'
+        };
+      }
       return {
-        validClassName: 'form-input invalid'
+        validClassName: 'form-input valid'
       };
     }
-    return {
-      validClassName: 'form-input valid'
-    };
+    return state;
   }
 
   render() {
-
     return (
       <div>
-        <label className="form-field">{label}</label>
-        <input {...input} type={type} className={this.state.validClassName} />
-        {meta.error && <div className="error-field">{meta.error}</div>}
+        <label className="form-field">{this.props.label}</label>
+        <input {...this.props.input} type={this.props.type} className={this.state.validClassName} />
+        {this.props.meta.error && <div className="error-field">{this.props.meta.error}</div>}
       </div>
     );
   }
