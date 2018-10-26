@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import { validations } from './validation/index';
-import { customInput } from './components/fields';
+import customInput from './components/fields';
 
 class RegisterForm extends Component {
   render() {
