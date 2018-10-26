@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export const customInput = props => {
-  const { label, input, type, meta } = props;
+class customInput extends Component {
+  state = { validClassName: 'form-input' };
 
-  const getValidClassName = () => {
-    if (meta.touched && meta.invalid) {
-      return 'form-input invalid';
-    } else if (meta.touched && meta.valid) {
-      return 'form-input valid';
+  static getDerivedStateFromProps(props, state) {
+    if (props.meta.touched) {
+      if (props.meta.invalid) {
+        return {
+          validClassName: 'form-input invalid'
+        };
+      }
+      return {
+        validClassName: 'form-input valid'
+      };
     }
-    return 'form-input';
-  };
+    return state;
+  }
 
-  return (
-    <div>
-      <label className="form-field">{label}</label>
-      <input {...input} type={type} className={getValidClassName(meta)} />
-      {meta.error && <div className="error-field">{meta.error}</div>}
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <label className="form-field">{this.props.label}</label>
+        <input {...this.props.input} type={this.props.type} className={this.state.validClassName} />
+        {this.props.meta.error && <div className="error-field">{this.props.meta.error}</div>}
+      </div>
+    );
+  }
+}
+
+export default customInput;
