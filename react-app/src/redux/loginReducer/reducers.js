@@ -27,10 +27,11 @@ function reducer(state = initialState, action) {
         isLoading: false,
         error: true
       };
-    case 'LOGOUT':
+    case 'LOG_OUT':
       return {
         ...state,
-        isLoading: false,
+        email: '',
+        password: '',
         logged: false
       };
     default:

@@ -17,9 +17,8 @@ const privateActionCreators = {
     type: 'LOGIN_FAILURE',
     payload: data
   }),
-  logOut: data => ({
-    type: 'LOG_OUT',
-    payload: data
+  logOut: () => ({
+    type: 'LOG_OUT'
   })
 };
 
@@ -42,10 +41,12 @@ export const actionCreators = {
     } else {
       dispatch(privateActionCreators.logInFailure(response.problem));
     }
+  },
+  logOut: () => dispatch => {
+    dispatch(privateActionCreators.logOut());
+    // Search for the correct way to do that
+    api.deleteHeader('Authorization');
   }
-  /*  logOut: () => dispatch => {
-    dispatch(privateActionCreators.logOut);
-  } */
 };
 
 export default actionCreators;
