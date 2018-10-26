@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import PropTypes from 'prop-types';
 
 const Profile = ({ email, name, surname, description, logged }) =>
   !logged ? (
     <Redirect to="/" />
   ) : (
     <div className="flex-container">
-      <h2 className="names">{name} {surname}</h2>
+      <h2 className="names">
+        {name} {surname}
+      </h2>
       <h2 className="names">{surname}</h2>
       <p className="release">{email}</p>
       <p className="description">{description}</p>
@@ -21,6 +24,14 @@ const mapStateToProps = state => ({
   description: state.login.description,
   logged: state.login.logged
 });
+
+Profile.propTypes = {
+  email: PropTypes.string,
+  name: PropTypes.string,
+  surname: PropTypes.string,
+  description: PropTypes.string,
+  logged: PropTypes.bool
+};
 
 export default connect(
   mapStateToProps,
