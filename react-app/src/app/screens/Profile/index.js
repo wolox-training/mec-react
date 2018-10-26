@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
-class Profile extends Component {
-  render() {
-    return (
-      <div className="flex-container">
-        <h1>User Profile</h1>
-      </div>
-    );
-  }
-}
+const Profile = ({ email, logged }) =>
+  !logged ? (
+    <Redirect to="/" />
+  ) : (
+    <div className="flex-container">
+      <h1>{email}</h1>
+    </div>
+  );
 
-export default Profile;
+const mapStateToProps = state => ({
+  email: state.login.email,
+  logged: state.login.logged
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Profile);
