@@ -16,16 +16,21 @@ function reducer(state = initialState, action) {
     case 'LOGIN_OK':
       return {
         ...state,
+        email: action.payload[0].mail,
+        password: action.payload[0].password,
+        isLoading: false,
         logged: true
       };
     case 'LOGIN_FAILURE':
       return {
         ...state,
+        isLoading: false,
         error: true
       };
     case 'LOGOUT':
       return {
         ...state,
+        isLoading: false,
         logged: false
       };
     default:

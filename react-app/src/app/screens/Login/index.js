@@ -7,8 +7,9 @@ import actionCreator from '../../../redux/loginReducer/actions';
 
 import RegisterForm from './layout';
 
-const RegisterFormContainer = ({ logged, submit }) =>
-  logged ? <Redirect to="/game" /> : <RegisterForm onSubmit={submit} />;
+function RegisterFormContainer({ logged, submit }) {
+  return logged ? <Redirect to="/game" /> : <RegisterForm onSubmit={submit} />;
+}
 
 RegisterFormContainer.propTypes = {
   logged: PropTypes.bool,
@@ -23,8 +24,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    submit: value => dispatch(actionCreator.logInSubmit(value)),
-    logout: () => dispatch(actionCreator.logOut())
+    submit: value => dispatch(actionCreator.logInSubmit(value))
   };
 };
 

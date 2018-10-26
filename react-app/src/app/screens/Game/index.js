@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { gamePropTypes } from '../../../constants/proptypes';
 import gameAction from '../../../redux/gameReducer/actions';
 
 import Board from './components/Board/';
@@ -39,17 +40,9 @@ const Game = ({ history, current, winner, handleClick, jumpTo, xIsNext }) => {
 };
 
 Game.propTypes = {
-  history: PropTypes.arrayOf(
-    PropTypes.shape({
-      square: PropTypes.arrayOf(PropTypes.string),
-      id: PropTypes.number
-    })
-  ).isRequired,
+  history: PropTypes.arrayOf(gamePropTypes).isRequired,
   xIsNext: PropTypes.bool.isRequired,
-  current: PropTypes.shape({
-    square: PropTypes.arrayOf(PropTypes.string),
-    id: PropTypes.number
-  }),
+  current: gamePropTypes,
   winner: PropTypes.string,
   handleClick: PropTypes.func,
   jumpTo: PropTypes.func
@@ -65,7 +58,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleClick: i => dispatch(gameAction.newPlay(i)),
-  jumpTo: step => dispatch(gameAction.jumpTo(step)),
+  jumpTo: step => dispatch(gameAction.jumpTo(step))
 });
 
 export default connect(

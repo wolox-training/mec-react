@@ -28,7 +28,6 @@ export const actionCreators = {
     dispatch(privateActionCreators.logInLoading());
     window.alert('Is Loading');
     const response = await UserServices.getUserSessions(email, password);
-    console.log(response);
     if (response.ok) {
       dispatch(privateActionCreators.logIn(response.data));
       if (response.data.length > 0) {
@@ -38,11 +37,10 @@ export const actionCreators = {
         });
       } else {
         window.alert('Wrong Mail or Password. Please check your credentials again!');
+        dispatch(privateActionCreators.logInFailure(response.problem));
       }
     } else {
       dispatch(privateActionCreators.logInFailure(response.problem));
-      console.log(response.data);
-      window.alert('Login Failure');
     }
   }
   /*  logOut: () => dispatch => {
