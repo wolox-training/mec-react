@@ -1,6 +1,5 @@
 const initialState = {
   email: '',
-  password: '',
   isLoading: false,
   logged: false,
   error: false
@@ -17,7 +16,6 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         email: action.payload[0].mail,
-        password: action.payload[0].password,
         isLoading: false,
         logged: true
       };
@@ -30,6 +28,7 @@ function reducer(state = initialState, action) {
     case 'LOGOUT':
       return {
         ...state,
+        email: '',
         isLoading: false,
         logged: false
       };

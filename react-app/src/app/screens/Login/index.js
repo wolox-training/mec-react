@@ -18,7 +18,6 @@ RegisterFormContainer.propTypes = {
 
 const mapStateToProps = state => ({
   email: state.login.email,
-  password: state.login.password,
   logged: state.login.logged
 });
 

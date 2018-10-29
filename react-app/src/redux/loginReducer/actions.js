@@ -43,9 +43,6 @@ export const actionCreators = {
       dispatch(privateActionCreators.logInFailure(response.problem));
     }
   }
-  /*  logOut: () => dispatch => {
-    dispatch(privateActionCreators.logOut);
-  } */
 };
 
 export default actionCreators;

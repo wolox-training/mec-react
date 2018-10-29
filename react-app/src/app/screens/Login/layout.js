@@ -6,10 +6,6 @@ import customInput from './components/fields';
 
 class RegisterForm extends Component {
   render() {
-    // El name prop es un identifier para nuestro field. El component prop se refiere al html tag. El tipo se refiere a lo que tenemos que ingresar en el componente. 
-    // El handle submit lo recibe por props.
-    // handleSubmit debe llamarse si o si la funcion que le llega por props, aunque deberia ser onSubmit porque asi se llama en el compo que se la pasa, Field la busca como handleSubmit. 
-    // Dentro de componentes creo una carpeta field, donde detallo el compoinente input. Aca solo lo rendereo.
     return (
       <form className="flex-container" onSubmit={this.props.handleSubmit}>
         <Field
@@ -40,7 +36,6 @@ class RegisterForm extends Component {
     );
   }
 }
-// Tengo que decorate nuestro componente usando el reduxForm decorator.
 RegisterForm = reduxForm({
   form: 'register'
 })(RegisterForm);
