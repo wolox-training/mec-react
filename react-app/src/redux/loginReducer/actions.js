@@ -35,7 +35,6 @@ export const actionCreators = {
           Authorization: response.data[0].token
         });
       } else {
-        window.alert('Wrong Mail or Password. Please check your credentials again!');
         dispatch(privateActionCreators.logInFailure(response.problem));
       }
     } else {

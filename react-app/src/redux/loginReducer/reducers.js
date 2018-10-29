@@ -2,7 +2,8 @@ const initialState = {
   email: '',
   isLoading: false,
   logged: false,
-  error: false
+  error: false,
+  errormsg: ''
 };
 
 function reducer(state = initialState, action) {
@@ -10,7 +11,8 @@ function reducer(state = initialState, action) {
     case 'LOGIN_LOADING':
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        errormsg: ''
       };
     case 'LOGIN_OK':
       return {
@@ -23,7 +25,8 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: true
+        error: true,
+        errormsg: 'Wrong Mail or Password. Please check your credentials again!'
       };
     case 'LOGOUT':
       return {
