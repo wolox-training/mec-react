@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class customInput extends Component {
   state = { validClassName: 'form-input' };
 
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(props) {
     if (props.meta.touched) {
       if (props.meta.invalid) {
         return {
@@ -14,7 +14,6 @@ class customInput extends Component {
         validClassName: 'form-input valid'
       };
     }
-    return state;
   }
 
   render() {
