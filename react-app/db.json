@@ -1,0 +1,16 @@
+{
+  "users":[
+      {
+          "id": 1,
+          "mail": "delacamara.maria@hotmail.com",
+          "password":"nokia1100",
+          "token": "123456789"
+      },
+      {
+          "id": 2,
+          "mail": "pcid@wolox.com.ar",
+          "password":"pablito",
+          "token": "123456789a"
+      }
+  ]
+}

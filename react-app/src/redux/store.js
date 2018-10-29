@@ -1,7 +1,19 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form';
+import { routerReducer } from 'react-router-redux';
 
-import reducer from './gameReducer/reducer';
+import loginReducer from './loginReducer/reducers';
+import gameReducer from './gameReducer/reducers';
 
-const store = createStore(reducer);
+const reducers = {
+  login: loginReducer,
+  game: gameReducer,
+  form: formReducer,
+  routing: routerReducer
+};
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const reducer = combineReducers(reducers);
+const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)));
 
 export default store;
