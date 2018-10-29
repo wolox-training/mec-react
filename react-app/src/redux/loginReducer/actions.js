@@ -25,7 +25,6 @@ const privateActionCreators = {
 export const actionCreators = {
   logInSubmit: ({ email, password }) => async dispatch => {
     dispatch(privateActionCreators.logInLoading());
-    window.alert('Is Loading');
     const response = await UserServices.getUserSessions(email, password);
     if (response.ok) {
       dispatch(privateActionCreators.logIn(response.data));
@@ -35,7 +34,6 @@ export const actionCreators = {
           Authorization: response.data[0].token
         });
       } else {
-        window.alert('Wrong Mail or Password. Please check your credentials again!');
         dispatch(privateActionCreators.logInFailure(response.problem));
       }
     } else {
@@ -44,7 +42,6 @@ export const actionCreators = {
   },
   logOut: () => dispatch => {
     dispatch(privateActionCreators.logOut());
-    // Search for the correct way to do that
     api.deleteHeader('Authorization');
   }
 };
