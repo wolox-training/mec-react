@@ -35,7 +35,6 @@ export const actionCreators = {
         });
       } else {
         dispatch(privateActionCreators.logInFailure(response.problem));
-        window.alert('Wrong Mail or Password. Please check your credentials again!');
       }
     } else {
       dispatch(privateActionCreators.logInFailure(response.problem));
