@@ -26,7 +26,6 @@ const privateActionCreators = {
 export const actionCreators = {
   logInSubmit: ({ email, password }) => async dispatch => {
     dispatch(privateActionCreators.logInLoading());
-    window.alert('Is Loading');
     const response = await UserServices.getUserSessions(email, password);
     if (response.ok) {
       dispatch(privateActionCreators.logIn(response.data));
