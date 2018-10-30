@@ -7,20 +7,26 @@ import actionCreator from '../../../redux/loginReducer/actions';
 
 import RegisterForm from './layout';
 
-function RegisterFormContainer({ logged, submit, errormsg }) {
-  return logged ? <Redirect to="/game" /> : <RegisterForm onSubmit={submit} errormsg={errormsg} />;
+function RegisterFormContainer({ logged, submit, errormsg, isLoading }) {
+  return logged ? (
+    <Redirect to="/game" />
+  ) : (
+    <RegisterForm onSubmit={submit} errormsg={errormsg} isLoading={isLoading} />
+  );
 }
 
 RegisterFormContainer.propTypes = {
   logged: PropTypes.bool,
   submit: PropTypes.func,
-  errormsg: PropTypes.string
+  errormsg: PropTypes.string,
+  isLoading: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
   email: state.login.email,
   logged: state.login.logged,
-  errormsg: state.login.errormsg
+  errormsg: state.login.errormsg,
+  isLoading: state.login.isLoading
 });
 
 const mapDispatchToProps = dispatch => {

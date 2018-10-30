@@ -1,6 +1,5 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  background-color: black;
   margin: 20px;
   padding: 0; }
 
@@ -120,5 +119,43 @@ a.active {
   .navbutton:hover {
     background-color: #DDD;
     color: #000; }
+
+.flex-profile {
+  background-color: #FFD2D2;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid #D8000C;
+  padding: 20px;
+  width: 100%; }
+
+.mail {
+  font-size: 20px; }
+
+.description {
+  font-size: 15px;
+  font-style: italic;
+  color: #715F73; }
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg); } }
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border-top: 2px solid #715F73;
+  border-right: 2px solid transparent;
+  animation: spinner .6s linear infinite; }
 
 /*# sourceMappingURL=index.css.map */

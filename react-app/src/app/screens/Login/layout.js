@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
+import WithLoader from '../../components/HOC';
+
+import Button from './components/Button';
 import { validations } from './validation/index';
 import customInput from './components/fields';
 
 class RegisterForm extends Component {
   render() {
+    const Loader = WithLoader(Button);
+
     return (
       <form className="flex-container" onSubmit={this.props.handleSubmit}>
         <Field
@@ -30,9 +35,7 @@ class RegisterForm extends Component {
           label="Confirm Password"
           validate={[validations.required, validations.matchesPassword]}
         />
-        <button className="button-style" type="submit">
-          Submit
-        </button>
+        <Loader isLoading={this.props.isLoading} />
         <p>{this.props.errormsg}</p>
       </form>
     );
@@ -41,7 +44,8 @@ class RegisterForm extends Component {
 
 RegisterForm.propTypes = {
   handleSubmit: PropTypes.func,
-  errormsg: PropTypes.string
+  errormsg: PropTypes.string,
+  isLoading: PropTypes.bool
 };
 
 RegisterForm = reduxForm({
