@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 
-const Profile = ({ email, logged }) =>
-  !logged ? (
+function Profile({ email, logged }) {
+  return !logged ? (
     <Redirect to="/" />
   ) : (
     <div className="flex-container">
       <h1>{email}</h1>
     </div>
   );
-
+}
 const mapStateToProps = state => ({
   email: state.login.email,
   logged: state.login.logged
