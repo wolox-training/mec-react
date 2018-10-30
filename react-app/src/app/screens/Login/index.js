@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { withRouter } from 'react-router';
-
 
 import actionCreator from '../../../redux/loginReducer/actions';
 
@@ -31,9 +29,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(RegisterFormContainer)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RegisterFormContainer);

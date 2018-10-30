@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import actionCreator from '../../../redux/loginReducer/actions';
 
@@ -21,6 +22,10 @@ const Topbar = ({ logOut }) => (
 const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(actionCreator.logOut())
 });
+
+Topbar.propTypes = {
+  logOut: PropTypes.func
+};
 
 export default connect(
   null,
