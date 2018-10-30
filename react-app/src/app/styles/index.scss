@@ -23,8 +23,8 @@ ul {
 	margin-bottom: 10px;
 }
 .square {
-	background: #fff;
-	border: 1px solid #999;
+	background: $color2;
+	border: 1px solid $grey;
 	float: left;
 	font-size: 24px;
 	font-weight: bold;
@@ -42,7 +42,7 @@ ul {
 .kbd-navigation {
 	.square {
 		&:focus {
-			background: #ddd;
+			background: $background-color-3;
 		}
 	}
 }
@@ -56,8 +56,8 @@ ul {
 .error-field {
 	margin: 5px 0;
 	border-radius: 5px;
-	color: $color_1;
-	background-color: $background_color_1;
+	color: $color1;
+	background-color: $background-color-1;
 	position: relative;
 	text-align: center;
 }
@@ -70,7 +70,7 @@ ul {
 	flex-wrap: wrap;
 	flex-direction: column;
 	justify-content: center;
-	border: 1px solid #ccc;
+	border: 1px solid $silver;
 	padding: 20px;
 	width: 100%;
 }
@@ -81,15 +81,15 @@ ul {
 	width: 100%;
 }
 .valid {
-	border: 1px solid green;
+	border: 1px solid $green;
 }
 .invalid {
-	border: 1px solid red;
+	border: 1px solid $red;
 }
 .button-style {
 	margin-top: 10px;
-	color: $color_2;
-	background-color: $background_color_2;
+	color: $color2;
+	background-color: $background-color-2;
 	width: 100%;
 	height: 30px;
 }
@@ -104,8 +104,8 @@ button {
 	padding: 20px;
 	justify-content: space-around;
 	align-items: center;
-	color: $color_3;
-	box-shadow: 0 0 15px silver;
+	color: $color3;
+	box-shadow: 0 0 15px $silver;
 	max-width: 1000px;
 	width: 100%;
 	margin: auto;
@@ -114,23 +114,23 @@ button {
 a {
 	text-decoration: none;
 	font-size: 17px;
-	color: $color_4;
+	color: $color4;
 	text-align: center;
 	&:hover {
-		background-color: $background_color_3;
-		color: $color_5;
+		background-color: $background-color-3;
+		color: $color5;
 	}
 }
 a.active {
-	color: $color_6;
+	color: $color6;
 }
 .navbutton {
 	text-decoration: none;
 	font-size: 17px;
-	color: $color_4;
+	color: $color4;
 	text-align: center;
 	&:hover {
-		background-color: $background_color_3;
-		color: $color_5;
+		background-color: $background-color-3;
+		color: $color5;
 	}
 }
