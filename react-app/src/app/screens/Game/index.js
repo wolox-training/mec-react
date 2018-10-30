@@ -8,7 +8,7 @@ import gameAction from '../../../redux/gameReducer/actions';
 
 import Board from './components/Board/';
 
-const Game = ({ history, current, winner, handleClick, jumpTo, xIsNext, logged }) => {
+function Game({ history, current, winner, handleClick, jumpTo, xIsNext, logged }) {
   const moves = history.map(step => {
     const desc = step.id ? `Go to move # ${step.id}` : 'Go to game start';
     return (
@@ -42,7 +42,7 @@ const Game = ({ history, current, winner, handleClick, jumpTo, xIsNext, logged }
       </div>
     </Fragment>
   );
-};
+}
 
 Game.propTypes = {
   history: PropTypes.arrayOf(gamePropTypes).isRequired,
@@ -50,7 +50,8 @@ Game.propTypes = {
   current: gamePropTypes,
   winner: PropTypes.string,
   handleClick: PropTypes.func,
-  jumpTo: PropTypes.func
+  jumpTo: PropTypes.func,
+  logged: PropTypes.bool
 };
 
 const mapStateToProps = state => ({

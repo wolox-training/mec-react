@@ -5,19 +5,21 @@ import PropTypes from 'prop-types';
 
 import actionCreator from '../../../redux/loginReducer/actions';
 
-const Topbar = ({ logOut }) => (
-  <nav className="navbar">
-    <NavLink activeClassName="active" to="/profile">
-      User Profile
-    </NavLink>
-    <NavLink activeClassName="active" to="/game">
-      Game
-    </NavLink>
-    <button className="navbutton" onClick={logOut}>
-      LogOut
-    </button>
-  </nav>
-);
+function Topbar({ logOut }) {
+  return (
+    <nav className="navbar">
+      <NavLink activeClassName="active" to="/profile">
+        User Profile
+      </NavLink>
+      <NavLink activeClassName="active" to="/game">
+        Game
+      </NavLink>
+      <button className="navbutton" onClick={logOut}>
+        LogOut
+      </button>
+    </nav>
+  );
+}
 
 const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(actionCreator.logOut())

@@ -15,7 +15,7 @@ const Profile = ({ email, name, surname, description, logged }) =>
       <p className="description">{description}</p>
     </div>
   );
-
+}
 const mapStateToProps = state => ({
   email: state.login.email,
   name: state.login.name,
