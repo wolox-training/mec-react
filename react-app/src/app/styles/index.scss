@@ -134,3 +134,26 @@ a.active {
 		color: $color_5;
 	}
 }
+.flex-profile {
+	background-color: $background_color_1;
+	align-items: center;
+	max-width: 500px;
+	margin: auto;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	border: 3px solid $color_1;
+	padding: 20px;
+	width: 100%;
+}
+
+.mail {
+	font-size: 20px;
+}
+.description {
+	font-size: 15px;
+	font-style: italic;
+	color: $color_7;
+}
