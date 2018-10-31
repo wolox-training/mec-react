@@ -135,7 +135,7 @@ a.active {
 	}
 }
 .flex-profile {
-	background-color: $background_color_1;
+	background-color: $background-color-1;
 	align-items: center;
 	max-width: 500px;
 	margin: auto;
@@ -144,7 +144,7 @@ a.active {
 	flex-wrap: wrap;
 	flex-direction: column;
 	justify-content: center;
-	border: 3px solid $color_1;
+	border: 3px solid $color1;
 	padding: 20px;
 	width: 100%;
 }
@@ -155,5 +155,5 @@ a.active {
 .description {
 	font-size: 15px;
 	font-style: italic;
-	color: $color_7;
+	color: $color7;
 }
