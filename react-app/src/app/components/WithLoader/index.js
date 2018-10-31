@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Spinner from '../../screens/Login/components/Spinner';
+import Spinner from '../../components/WithLoader/components/Spinner';
 
 function WithLoader(Component) {
   return function(props) {

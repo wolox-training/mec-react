@@ -1,6 +1,6 @@
 import React from 'react';
 
-import WithLoader from '../../../../components/HOC';
+import WithLoader from '../../../../components/WithLoader';
 
 function Button() {
   return (
