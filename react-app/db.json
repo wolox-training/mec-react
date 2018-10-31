@@ -4,12 +4,18 @@
           "id": 1,
           "mail": "delacamara.maria@hotmail.com",
           "password":"nokia1100",
+          "name": "Maria Emilia",
+          "surname": "de la Camara",
+          "description": "Me gusta el arte",
           "token": "123456789"
       },
       {
           "id": 2,
           "mail": "pcid@wolox.com.ar",
           "password":"pablito",
+          "name": "Pablo",
+          "surname": "Cid",
+          "description": "Estoy en Chile",
           "token": "123456789a"
       }
   ]

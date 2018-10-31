@@ -3,6 +3,9 @@ const initialState = {
   isLoading: false,
   logged: false,
   error: false,
+  name: '',
+  surname: '',
+  description: '',
   errormsg: ''
 };
 
@@ -18,6 +21,9 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         email: action.payload[0].mail,
+        name: action.payload[0].name,
+        surname: action.payload[0].surname,
+        description: action.payload[0].description,
         isLoading: false,
         logged: true
       };
@@ -32,6 +38,9 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         email: '',
+        name: '',
+        surname: '',
+        description: '',
         isLoading: false,
         logged: false
       };
