@@ -38,6 +38,9 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         email: '',
+        name: '',
+        surname: '',
+        description: '',
         isLoading: false,
         logged: false
       };
