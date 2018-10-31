@@ -28,7 +28,7 @@ function reducer(state = initialState, action) {
         error: true,
         errormsg: 'Wrong Mail or Password. Please check your credentials again!'
       };
-    case 'LOGOUT':
+    case 'LOG_OUT':
       return {
         ...state,
         email: '',
