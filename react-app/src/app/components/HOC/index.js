@@ -4,12 +4,7 @@ import Spinner from '../../screens/Login/components/Spinner';
 
 function WithLoader(Component) {
   return function(props) {
-      console.log(props.isLoading);
-    return props.isLoading ? (
-      <Spinner />
-    ) : (
-      <Component {...props}/>
-    );
+    return props.isLoading ? <Spinner /> : <Component {...props} />;
   };
 }
 
