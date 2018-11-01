@@ -1,35 +1,36 @@
+import { createTypes } from 'redux-recompose';
+
 import UserServices from '../../services/UserServices';
 import api from '../../services/config/api';
 
+export const actions = createTypes(
+  ['LOGIN', 'LOGIN_SUCCESS', 'LOGIN_LOADING', 'LOGIN_FAILURE', 'LOG_OUT'],
+  '@@LOGIN'
+);
+
 const privateActionCreators = {
   logIn: data => ({
-    type: 'LOGIN',
+    type: actions.LOGIN,
     payload: data
   }),
-  logInOk: data => ({
-    type: 'LOGIN_OK',
+  logInSuccess: data => ({
+    type: actions.LOGIN_SUCCESS,
     payload: data
-  }),
-  logInLoading: () => ({
-    type: 'LOGIN_LOADING'
   }),
   logInFailure: data => ({
-    type: 'LOGIN_FAILURE',
+    type: actions.LOGIN_FAILURE,
     payload: data
-  }),
-  logOut: () => ({
-    type: 'LOG_OUT'
   })
 };
 
 export const actionCreators = {
   logInSubmit: ({ email, password }) => async dispatch => {
-    dispatch(privateActionCreators.logInLoading());
+    dispatch({ type: actions.LOGIN_LOADING });
     const response = await UserServices.getUserSessions(email, password);
     if (response.ok) {
       dispatch(privateActionCreators.logIn(response.data));
       if (response.data.length > 0) {
-        dispatch(privateActionCreators.logInOk(response.data));
+        dispatch(privateActionCreators.logInSuccess(response.data));
         api.setHeaders({
           Authorization: response.data[0].token
         });
@@ -41,7 +42,7 @@ export const actionCreators = {
     }
   },
   logOut: () => dispatch => {
-    dispatch(privateActionCreators.logOut());
+    dispatch({ type: actions.LOG_OUT });
     api.deleteHeader('Authorization');
   }
 };
