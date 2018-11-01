@@ -157,3 +157,21 @@ a.active {
 	font-style: italic;
 	color: $grey;
 }
+
+@keyframes spinner {
+	to {transform: rotate(360deg);}
+  }
+   
+  .spinner:before {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	margin: 20px auto;
+	border-radius: 50%;
+	border-top: 2px solid $grey;
+	border-right: 2px solid transparent;
+	animation: spinner .6s linear infinite;
+  }

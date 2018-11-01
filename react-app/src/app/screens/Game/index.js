@@ -60,7 +60,8 @@ const mapStateToProps = state => ({
   winner: state.game.winner,
   stepNumber: state.game.stepNumber,
   xIsNext: state.game.xIsNext,
-  logged: state.login.logged
+  logged: state.login.logged,
+  isLoading: state.login.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

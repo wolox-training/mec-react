@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
+import Button from './components/Button';
 import { validations } from './validation/index';
 import customInput from './components/fields';
 
@@ -30,9 +31,7 @@ class RegisterForm extends Component {
           label="Confirm Password"
           validate={[validations.required, validations.matchesPassword]}
         />
-        <button className="button-style" type="submit">
-          Submit
-        </button>
+        <Button isLoading={this.props.isLoading} />
         <p>{this.props.errormsg}</p>
       </form>
     );
@@ -41,7 +40,8 @@ class RegisterForm extends Component {
 
 RegisterForm.propTypes = {
   handleSubmit: PropTypes.func,
-  errormsg: PropTypes.string
+  errormsg: PropTypes.string,
+  isLoading: PropTypes.bool
 };
 
 RegisterForm = reduxForm({
