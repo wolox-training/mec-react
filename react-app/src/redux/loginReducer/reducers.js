@@ -15,8 +15,7 @@ const initialState = {
 const reducerDescription = {
   [actions.LOGIN_LOADING]: (state, action) => ({
     ...state,
-    isLoading: true,
-    errormsg: ''
+    isLoading: true
   }),
   [actions.LOGIN_SUCCESS]: (state, action) => ({
     ...state,

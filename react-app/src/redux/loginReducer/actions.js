@@ -3,16 +3,9 @@ import { createTypes } from 'redux-recompose';
 import UserServices from '../../services/UserServices';
 import api from '../../services/config/api';
 
-export const actions = createTypes(
-  ['LOGIN', 'LOGIN_SUCCESS', 'LOGIN_LOADING', 'LOGIN_FAILURE', 'LOG_OUT'],
-  '@@LOGIN'
-);
+export const actions = createTypes(['LOGIN_SUCCESS', 'LOGIN_LOADING', 'LOGIN_FAILURE', 'LOG_OUT'], '@@LOGIN');
 
 const privateActionCreators = {
-  logIn: data => ({
-    type: actions.LOGIN,
-    payload: data
-  }),
   logInSuccess: data => ({
     type: actions.LOGIN_SUCCESS,
     payload: data
@@ -28,7 +21,6 @@ export const actionCreators = {
     dispatch({ type: actions.LOGIN_LOADING });
     const response = await UserServices.getUserSessions(email, password);
     if (response.ok) {
-      dispatch(privateActionCreators.logIn(response.data));
       if (response.data.length > 0) {
         dispatch(privateActionCreators.logInSuccess(response.data));
         api.setHeaders({
