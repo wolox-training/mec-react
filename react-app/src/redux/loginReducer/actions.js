@@ -1,38 +1,35 @@
-import { createTypes } from 'redux-recompose';
+import { createTypes, completeTypes } from 'redux-recompose';
 
 import UserServices from '../../services/UserServices';
 import api from '../../services/config/api';
+// import withStatusHandling from 'redux-recompose/lib/injections/withStatusHandling';
 
-export const actions = createTypes(['LOGIN_SUCCESS', 'LOGIN_LOADING', 'LOGIN_FAILURE', 'LOG_OUT'], '@@LOGIN');
+export const actions = createTypes(completeTypes(['LOGIN'], ['LOG_OUT']), '@@LOGIN');
 
-const privateActionCreators = {
+/* const privateActionCreators = {
+  logIn: () => ({
+    type: actions.LOGIN,
+    target: 'login'
+  }),
   logInSuccess: data => ({
     type: actions.LOGIN_SUCCESS,
-    payload: data
+    payload: data,
+    target: 'login'
   }),
-  logInFailure: data => ({
+  logInFailure: () => ({
     type: actions.LOGIN_FAILURE,
-    payload: data
+    target: 'login'
   })
-};
+}; */
 
 export const actionCreators = {
-  logInSubmit: ({ email, password }) => async dispatch => {
-    dispatch({ type: actions.LOGIN_LOADING });
-    const response = await UserServices.getUserSessions(email, password);
-    if (response.ok) {
-      if (response.data.length > 0) {
-        dispatch(privateActionCreators.logInSuccess(response.data));
-        api.setHeaders({
-          Authorization: response.data[0].token
-        });
-      } else {
-        dispatch(privateActionCreators.logInFailure(response.problem));
-      }
-    } else {
-      dispatch(privateActionCreators.logInFailure(response.problem));
-    }
-  },
+  logIn: ({ email, password }) => ({
+    type: actions.LOGIN,
+    target: 'login',
+    payload: (email, password),
+    service: UserServices.getUserSessions
+   // injections: withStatusHandling({404: ()=> console.log('not found')})
+  }),
   logOut: () => dispatch => {
     dispatch({ type: actions.LOG_OUT });
     api.deleteHeader('Authorization');

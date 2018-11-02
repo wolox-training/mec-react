@@ -8,7 +8,7 @@ import gameAction from '../../../redux/gameReducer/actions';
 
 import Board from './components/Board/';
 
-function Game({ history, current, winner, handleClick, jumpTo, xIsNext, logged }) {
+function Game({ history, current, winner, handleClick, jumpTo, xIsNext, user }) {
   const moves = history.map(step => {
     const desc = step.id ? `Go to move # ${step.id}` : 'Go to game start';
     return (
@@ -25,7 +25,7 @@ function Game({ history, current, winner, handleClick, jumpTo, xIsNext, logged }
     status = `Next player: ${xIsNext ? 'X' : 'O'}`;
   }
 
-  return !logged ? (
+  return !user ? (
     <Redirect to="/" />
   ) : (
     <Fragment>
@@ -51,7 +51,7 @@ Game.propTypes = {
   winner: PropTypes.string,
   handleClick: PropTypes.func,
   jumpTo: PropTypes.func,
-  logged: PropTypes.bool
+  user: PropTypes.obj
 };
 
 const mapStateToProps = state => ({
@@ -60,8 +60,8 @@ const mapStateToProps = state => ({
   winner: state.game.winner,
   stepNumber: state.game.stepNumber,
   xIsNext: state.game.xIsNext,
-  logged: state.login.logged,
-  isLoading: state.login.isLoading
+  user: state.login.user,
+  loginLoading: state.login.loginLoading
 });
 
 const mapDispatchToProps = dispatch => ({

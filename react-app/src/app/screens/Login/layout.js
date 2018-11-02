@@ -31,8 +31,8 @@ class RegisterForm extends Component {
           label="Confirm Password"
           validate={[validations.required, validations.matchesPassword]}
         />
-        <Button isLoading={this.props.isLoading} />
-        <p>{this.props.errormsg}</p>
+        <Button loginLoading={this.props.loginLoading} />
+        <p>{this.props.loginErrormsg}</p>
       </form>
     );
   }
@@ -40,8 +40,8 @@ class RegisterForm extends Component {
 
 RegisterForm.propTypes = {
   handleSubmit: PropTypes.func,
-  errormsg: PropTypes.string,
-  isLoading: PropTypes.bool
+  loginErrormsg: PropTypes.string,
+  loginLoading: PropTypes.bool
 };
 
 RegisterForm = reduxForm({
