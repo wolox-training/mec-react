@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 
 function Profile({ user }) {
+  console.log(user);
   return !user ? (
     <Redirect to="/" />
   ) : (
@@ -11,7 +12,7 @@ function Profile({ user }) {
       <h2>
         {user.name} {user.surname}
       </h2>
-      <p className="mail">{user.email}</p>
+      <p className="mail">{user.mail}</p>
       <p className="description">{user.description}</p>
     </div>
   );

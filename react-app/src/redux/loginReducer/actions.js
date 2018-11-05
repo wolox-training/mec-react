@@ -25,9 +25,10 @@ export const actions = createTypes(completeTypes(['LOGIN'], ['LOG_OUT']), '@@LOG
 export const actionCreators = {
   logIn: values => ({
     type: actions.LOGIN,
-    target: 'login',
+    target: 'user',
     payload: values,
-    service: UserServices.getUserSessions
+    service: UserServices.getUserSessions,
+    successSelector: response => response.data[0]
    // injections: withStatusHandling({404: ()=> console.log('not found')})
   }),
   logOut: () => dispatch => {

@@ -61,7 +61,7 @@ const mapStateToProps = state => ({
   stepNumber: state.game.stepNumber,
   xIsNext: state.game.xIsNext,
   user: state.login.user,
-  loginLoading: state.login.loginLoading
+  userLoading: state.login.userLoading
 });
 
 const mapDispatchToProps = dispatch => ({

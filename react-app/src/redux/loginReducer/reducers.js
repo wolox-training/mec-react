@@ -5,9 +5,9 @@ import { actions } from './actions';
 
 const initialState = {
   user: null,
-  loginLoading: false,
+  userLoading: false,
   // logged: false,
-  loginError: false
+  userError: false
   // loginErrormsg: ''
 };
 

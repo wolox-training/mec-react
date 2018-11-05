@@ -2,7 +2,7 @@
 function onLoading(selector = () => true) {
   return (state, action) => ({
     ...state,
-    [`${action.target}Loading`]: selector(action, state),
+    [`${action.target}Loading`]: selector(action, state)
     // [`${action.target}Errormsg`]: ''
   });
 }
