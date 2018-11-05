@@ -6,5 +6,5 @@ A ese conjunto de funciones lo ubicamos dentro de src/services con el nombre Use
 import api from './config/api';
 
 export default {
-  getUserSessions: async (mail, password) => api.get('/users', { mail, password })
+  getUserSessions: async values => api.get('/users', { values })
 };

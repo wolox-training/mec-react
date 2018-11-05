@@ -30,7 +30,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    submit: value => dispatch(actionCreator.logIn(value))
+    submit: values => dispatch(actionCreator.logIn(values))
   };
 };
 

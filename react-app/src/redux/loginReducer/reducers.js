@@ -15,9 +15,9 @@ const initialState = {
 const reducerDescription = {
   primaryActions: [actions.LOGIN],
   override: {
-//   [actions.LOGIN]: createEffects.onLoading,
-//   [actions.LOGIN_SUCCESS]: createEffects.onSuccess,
-//   [actions.LOGIN_FAILURE]: createEffects.onFailure,
+  // [actions.LOGIN]: createEffects.onLoading,
+  // [actions.LOGIN_SUCCESS]: createEffects.onSuccess,
+  // [actions.LOGIN_FAILURE]: createEffects.onFailure,
     [actions.LOG_OUT]: createEffects.onLogOut
   }
 };
