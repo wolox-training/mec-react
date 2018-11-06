@@ -6,7 +6,7 @@ import { actions } from './actions';
 const initialState = {
   user: null,
   userLoading: false,
-  userError: false
+  userError: ''
 };
 
 // create an object which has the actions and the state changes.
