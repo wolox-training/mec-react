@@ -13,9 +13,9 @@ export const actionCreators = {
     service: UserServices.getUserSessions,
     successSelector: response => response.data[0]
   }),
-  logOut: () => dispatch => {
-    dispatch({ type: actions.LOG_OUT });
+  logOut: () => {
     api.deleteHeader('Authorization');
+    return { type: actions.LOG_OUT };
   }
 };
 

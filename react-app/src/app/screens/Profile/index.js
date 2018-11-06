@@ -4,7 +4,6 @@ import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 
 function Profile({ user }) {
-  console.log(user);
   return !user ? (
     <Redirect to="/" />
   ) : (

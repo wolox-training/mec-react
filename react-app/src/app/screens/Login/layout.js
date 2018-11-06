@@ -32,7 +32,7 @@ class RegisterForm extends Component {
           validate={[validations.required, validations.matchesPassword]}
         />
         <Button userLoading={this.props.userLoading} />
-        <p>{this.props.userErrormsg}</p>
+        <p>{this.props.userError}</p>
       </form>
     );
   }
@@ -40,7 +40,7 @@ class RegisterForm extends Component {
 
 RegisterForm.propTypes = {
   handleSubmit: PropTypes.func,
-  userErrormsg: PropTypes.string,
+  userError: PropTypes.string,
   userLoading: PropTypes.bool
 };
 

@@ -1,6 +1,6 @@
 import { createReducer, completeReducer } from 'redux-recompose';
 
-import createEffects from './util';
+import onLogOut from './util';
 import { actions } from './actions';
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
 const reducerDescription = {
   primaryActions: [actions.LOGIN],
   override: {
-    [actions.LOG_OUT]: createEffects.onLogOut
+    [actions.LOG_OUT]: onLogOut
   }
 };
 
